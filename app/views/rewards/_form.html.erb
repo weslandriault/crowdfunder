@@ -1,0 +1,29 @@
+<div id="rewards">
+  <%= form_for([@project, @reward]) do |f| %>
+
+    <div class="field">
+      <%= f.label :name  %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :price %>
+      <%= f.number_field :price %>
+    </div>
+
+    <div class="field">
+      <%= f.label :backer_limit %>
+      <%= f.number_field :backer_limit %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+</div>
