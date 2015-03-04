@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+form div.field, .actions{
+  margin-bottom: 20px;
+}
+
+form div.field label{
+  display: block;
+  margin-bottom: 5px;
+}
+
+.project {
+  border: 1px black dashed;
+  margin-top: 20px;
+}
+
+.project img {
+  width: 50%;
+  height: auto;
+}

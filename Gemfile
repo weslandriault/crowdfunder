@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'quiet_assets'
 
 gem 'sorcery'
-
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

@@ -2,3 +2,16 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<h1><%= @project.name %></h1>
+
+<img src="<%= @project.photo_url %>" alt="">
+
+<h3><strong>Funding goal:</strong> $<%= @project.funding_goal %></h3>
+
+<h3><strong>Start Date: </strong><%= @project.start_date %></h3>
+<h3><strong>End Date: </strong><%= @project.end_date %></h3>
+<p><%= @project.description %></p>
+
+
+

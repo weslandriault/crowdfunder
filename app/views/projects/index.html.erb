@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Projects</h1>
+<h1>Crowdfunder Projects</h1>
+<%= link_to 'Create a New Project', new_project_path %>
+
+  <% @projects.each do |project| %>
+  <div class="project">
+      <h2><%= link_to project.name, project%></h2>
+      <p><strong>Funding goal: $</strong><%= project.funding_goal %></p>
+      <img src="<%= project.photo_url %>">
+      <p><strong>Description: </strong><br>
+      <%= project.description %></p>
 
 <table>
   <thead>
@@ -9,17 +18,24 @@
     </tr>
   </thead>
 
+  
+   
+
   <tbody>
-    <% @projects.each do |project| %>
       <tr>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      </tbody>
+  </table>
+
+  </div>
     <% end %>
-  </tbody>
-</table>
+
+ 
+  
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+
