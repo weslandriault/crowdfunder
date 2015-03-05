@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303201610) do
+ActiveRecord::Schema.define(version: 20150305220431) do
 
   create_table "pledges", force: :cascade do |t|
     t.integer  "amount"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20150303201610) do
     t.string   "description"
     t.integer  "funding_goal"
     t.integer  "owner_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "amount_raised", default: 0
   end
 
   create_table "rewards", force: :cascade do |t|
