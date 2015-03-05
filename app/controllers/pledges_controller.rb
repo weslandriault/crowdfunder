@@ -9,7 +9,9 @@ class PledgesController < ApplicationController
     @pledge = @project.pledges.new(pledge_params)
     @pledge.backer = current_user
     if @pledge.save
-      redirect_to project_path(@project)  
+      redirect_to project_path(@project) 
+      @project.amount_raised += @pledge.amount
+      @project.save
     else
       flash.now[:alert] = "Your attempt to make a pledge didn't work. Please try again!"
       render :new
