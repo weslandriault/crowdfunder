@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150303201610) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "projects", force: :cascade do|t|
+  create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.date     "end_date"
     t.date     "start_date"
