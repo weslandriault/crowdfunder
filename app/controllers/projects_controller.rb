@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.owner_id = current_user.id
     
-
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -37,7 +36,6 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
-    binding.pry
   end
 
   # PATCH/PUT /projects/1

@@ -7,6 +7,7 @@
   <div class="project">
       <h2><%= link_to project.name, project%></h2>
       <p><strong>Funding goal: $</strong><%= project.funding_goal %></p>
+      <div class="progress-bar"><div class="progress" style="width: <%= project.progress %>%;"></div></div>
       <img src="<%= project.photo_url %>">
       <p><strong>Description: </strong><br>
       <%= project.description %></p>
