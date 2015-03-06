@@ -8,13 +8,18 @@ class PledgesController < ApplicationController
   def create
     @pledge = @project.pledges.new(pledge_params)
     @pledge.backer = current_user
-    if @pledge.save
-      redirect_to project_path(@project) 
-      @project.amount_raised += @pledge.amount
-      @project.save
-    else
-      flash.now[:alert] = "Your attempt to make a pledge didn't work. Please try again!"
-      render :new
+
+    respond_to do |format|
+      if @pledge.save
+        format.html { redirect_to project_path(@project) }
+        @project.amount_raised += @pledge.amount
+        @project.save
+        format.js {}  
+      else
+        # flash.now[:alert] = @reward.errors.full_messages.to_sentence
+          fornat.html { render :new , alert: "Your attempt to make a pledge didn't work. Please try again!" }
+          format.js {}
+      end
     end
   end
 
