@@ -1,0 +1,16 @@
+
+	<div id="reward_<%= reward.id %>">
+		<div class="content">
+		  <h3><%= reward.name %></h3>
+		  <p>Cost: $<%= reward.price %></p>
+		  <p>Description: <%= reward.description %></p>
+		  <p>Backer Limit: <%= reward.backer_limit %></p>
+		</div>
+		
+		<div class="reward_options">
+			<p>
+			  <%= link_to 'Edit', edit_project_reward_path(@project, reward), id: 'edit_reward_link', remote: true %>
+			  | <%= link_to "Delete", project_reward_path(@project, reward), id: 'delete_reward_link', method: :delete, data: {confirm: "Are you sure you want to delete this reward?"}, remote: true %>
+			</p>
+		</div>
+	</div>   
