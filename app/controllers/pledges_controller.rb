@@ -24,9 +24,11 @@ class PledgesController < ApplicationController
   end
 
   def destroy
-    @pledge = Pledge.find(params[:id])
-    @pledge.destroy
-    redirect_to project_path(@project)
+    @pledge = Pledge.destroy(params[:id])
+    respond_to do |format|
+      format.html { redirect_to project_path(@project) }
+      format.js
+    end
   end
 
   private
