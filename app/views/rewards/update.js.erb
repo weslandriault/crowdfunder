@@ -1,4 +1,4 @@
 // $('#edit_reward_link').show();
 // $('.reward_options').hide()
-$('#reward_<%= @reward.id %>').show();
+$('#reward_<%= @reward.id %>').show().html('<%= j render partial: 'rewards/reward', locals: {reward: @reward} %>');
 $('#edit_reward_<%= @reward.id %>').html("");

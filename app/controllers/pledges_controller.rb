@@ -18,7 +18,7 @@ class PledgesController < ApplicationController
         format.js {}  
       else
         # flash.now[:alert] = @reward.errors.full_messages.to_sentence
-          fornat.html { render :new , alert: "Your attempt to make a pledge didn't work. Please try again!" }
+          format.html { render :new , alert: "Your attempt to make a pledge didn't work. Please try again!" }
           format.js {}
       end
     end

@@ -1,5 +1,5 @@
 <div id="pledge_<%= pledge.id %>">
-	  <h5><%= pledge.amount %></h5>
+	  <h5>$<%= pledge.amount %></h5>
 	  <p><%= pledge.created_at %></p>
 	  <p>Given by: <%= User.find(pledge.backer_id).first_name %> <%= User.find(pledge.backer_id).last_name %></p>
 
