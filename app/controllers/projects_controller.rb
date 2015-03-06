@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+
+      def progress
+        (self.amount_raised.to_f / self.funding_goal.to_f * 100).round(2)
+      end
   end
 
   # GET /projects/1

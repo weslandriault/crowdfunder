@@ -7,8 +7,6 @@ class Project < ActiveRecord::Base
     self.end_date.mjd - self.start_date.mjd
   end
 
-  def progress
-    self.amount_raised.to_f / self.funding_goal.to_f * 100
-  end
+
 
 end
