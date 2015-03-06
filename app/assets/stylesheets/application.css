@@ -39,11 +39,12 @@ form div.field label{
 
 .progress-bar {
   height: 10px;
-  width: 200px;
+  width: 400px;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 5px;
   display: block;
   margin-bottom: 50px;
+  overflow: hidden;
 }
 
 .progress {

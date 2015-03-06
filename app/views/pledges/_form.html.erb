@@ -12,9 +12,18 @@
   <% end %>
 
   <div class="field">
+
+    <h1> Pick your reward </h1>
+    <% @project.rewards.each do |reward| %>
+      <%= f.label :reward_id, reward.name %>
+      <%= f.radio_button :reward_id, reward.id %> 
+    <% end %>
+  </div>
+
+    <div class="field">
     <%= f.label :amount %>
     <%= f.number_field :amount %>
-  </div>
+  </div>  
 
   <div class="actions">
     <%= f.submit %>
