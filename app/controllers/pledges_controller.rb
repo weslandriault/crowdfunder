@@ -8,6 +8,7 @@ class PledgesController < ApplicationController
   def create
     @pledge = @project.pledges.new(pledge_params)
     @pledge.backer = current_user
+    # @pledge.reward = @pledge.find_reward
 
     respond_to do |format|
       if @pledge.save
@@ -33,7 +34,7 @@ class PledgesController < ApplicationController
 
   private
   def pledge_params
-    params[:pledge].permit(:amount, :backer_id, :project_id)
+    params[:pledge].permit(:amount, :backer_id, :project_id, :reward_id)
   end
   def load_project
     @project = Project.find(params[:project_id])

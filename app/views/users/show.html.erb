@@ -1,1 +1,15 @@
-show.html.erb
+<h1>Yo <%= @user.first_name %></h1>
+<h3>This is your user page</h3>
+
+<p><strong>First Name: </strong><%= @user.first_name %></p>
+<p><strong>Last Name:</strong><%= @user.last_name %></p>
+<p><strong>Email</strong><%= @user.email %></p>
+
+<h2 style="text-decoration: underline;">Projects</h2>
+
+<h3><%= @user.projects.each do |reward| %></h3>
+
+<% end %>
+
+
+
