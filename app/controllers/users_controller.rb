@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.welcome_email(@user).deliver_now
+      auto_login(@user)
       redirect_to projects_url, notice: "Signed up!"
     else
       render "new"
@@ -35,6 +37,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :remember)
   end
 end
