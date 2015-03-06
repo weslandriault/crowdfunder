@@ -25,6 +25,8 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    @project.owner_id = current_user.id
+    
 
     respond_to do |format|
       if @project.save
@@ -35,6 +37,7 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+    binding.pry
   end
 
   # PATCH/PUT /projects/1
