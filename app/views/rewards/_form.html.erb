@@ -1,5 +1,4 @@
-<div id="rewards">
-  <%= form_for([@project, @reward]) do |f| %>
+  <%= form_for([@project, @reward], remote: true) do |f| %>
 
     <div class="field">
       <%= f.label :name  %>
@@ -26,4 +25,3 @@
     </div>
 
   <% end %>
-</div>

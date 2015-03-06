@@ -7,35 +7,48 @@ class RewardsController < ApplicationController
 
   def create
     @reward = @project.rewards.new(reward_params)
-
-    if @reward.save
-      redirect_to project_path(@project)
-    else
-      # flash.now[:alert] = @reward.errors.full_messages.to_sentence
-      flash.now[:alert] = "You lil bitch done goofed!!"
-      render :new
+  
+    respond_to do |format|
+      if @reward.save
+        format.html { redirect_to project_path(@project) }
+        format.js {}  
+      else
+        # flash.now[:alert] = @reward.errors.full_messages.to_sentence
+          fornat.html { render :new , alert: "Creation failed, please retry" }
+          format.js {}
+      end
     end
-
   end
 
   def edit
     @reward = Reward.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
     @reward = Reward.find(params[:id])
-    if @reward.update_attributes(reward_params)
-      redirect_to project_path(@project)
-    else
-      flash.now[:alert] = "You lil bitch done goofed!!"
-      render :edit
+
+      respond_to do |format|
+      if @reward.update_attributes(reward_params)
+        format.html { redirect_to project_path(@project) }
+        format.js {}  
+      else
+        # flash.now[:alert] = @reward.errors.full_messages.to_sentence
+          fornat.html { render :edit , alert: "Edit failed, please retry" }
+          format.js {}
+      end
     end
   end
 
   def destroy
-    @reward = Reward.find(params[:id])
-    @reward.destroy
-    redirect_to project_path(@project)
+    @reward = Reward.destroy(params[:id])
+    respond_to do |format|
+      format.html { redirect_to project_path(@project) }
+      format.js
+    end
   end
 
   private
