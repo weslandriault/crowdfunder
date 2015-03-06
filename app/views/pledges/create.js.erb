@@ -1,0 +1,3 @@
+$('#add_pledge_link').show();
+$('#pledge_div').append('<%= j render partial: 'pledges/pledge', locals: {pledge: @pledge} %>');
+$('#new_pledge').html("");

@@ -25,16 +25,12 @@
 </div>
 
 
-<div id='pledge_div'>
-	<h3>Pledges</h3>
-	<h5><%= link_to 'Make a Pledge', new_project_pledge_path(@project) %></h5>
-	<% @project.pledges.each do |pledge| %>
-	  
-	  <h5><%= pledge.amount %></h5>
-	  <p><%= pledge.created_at %></p>
-	  <p>Given by: <%= User.find(pledge.backer_id).first_name %> <%= User.find(pledge.backer_id).last_name %></p>
+<h3>Pledges</h3>
 
-	  <%= link_to "Delete", project_pledge_path(@project, pledge), method: :delete, data: {confirm: "Are you sure you want to delete this pledge?"} %>   
+<h5><%= link_to 'Make a Pledge', new_project_pledge_path(@project), id: "add_pledge_link", remote: true %></h5>
+<div id='pledge_div'>
+	<% @project.pledges.each do |pledge| %>
+	  <%= render partial: 'pledges/pledge', locals: {pledge: pledge} %> 
 	<% end %>
 </div>
 
