@@ -2,9 +2,16 @@
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', projects_path %> |
+<%= link_to 'Delete', project_path(@project), method: :delete, data: {confirm: "Are you sure you want to delete this project?"} %>
 
 <h1><%= @project.name %></h1>
+<%  if current_user.id == @project.owner_id %>
+  <p>This is your project! You can make changes to your project below</p>
+  <p>You have <Strong><%= @project.days_left %> days left</Strong> until your campaign is complete!</p>
+<% else %>
+  <p>This aint your project son! </p>
+<% end %>
 
 <img src="<%= @project.photo_url %>" alt="">
 

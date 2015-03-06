@@ -36,3 +36,17 @@ form div.field label{
   width: 50%;
   height: auto;
 }
+
+.progress-bar {
+  height: 10px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 50px;
+}
+
+.progress {
+  height: 10px;
+  background: lightgreen;
+}

@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+
+      def progress
+        (self.amount_raised.to_f / self.funding_goal.to_f * 100).round(2)
+      end
   end
 
   # GET /projects/1
@@ -25,7 +29,8 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
+    @project.owner_id = current_user.id
+    
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -60,6 +65,8 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
